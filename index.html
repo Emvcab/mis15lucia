@@ -151,7 +151,7 @@ section::before {
 
 .d-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:500px;width:100%}
 .d-card{background:var(--card);border:3px solid var(--silver);padding:20px 16px;text-align:center;box-shadow:6px 6px 0 var(--dark-silver);backdrop-filter:blur(8px)}
-.d-card .di {font-size:32px;margin-bottom:6px;}
+.d-card .di {font-size:32px;margin-bottom:6px;display:flex;justify-content:center;align-items:center;}
 
 .d-card .dl, .cl {
   font-family: 'Montserrat', sans-serif;
@@ -297,8 +297,21 @@ body, p, div, span, a, button, label, input, textarea, select,
     <div class="sec-title">La Fiesta</div>
     <p class="sec-sub">> todos los detalles <</p>
     <div class="d-grid">
-      <div class="d-card"><div class="di">📅</div><div class="dl">Fecha</div><div class="dv">Sáb · Nov 7<br>2026</div></div>
-      <div class="d-card"><div class="di">🕗</div><div class="dl">Hora</div><div class="dv">22:30 hs<br><small style="font-size:12px;color:var(--silver)">Ingreso 22:00</small></div></div>
+      <div class="d-card">
+        <div class="di">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--white);"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        </div>
+        <div class="dl">Fecha</div>
+        <div class="dv">Sáb · Nov 7<br>2026</div>
+      </div>
+      
+      <div class="d-card">
+        <div class="di">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--white);"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <div class="dl">Hora</div>
+        <div class="dv">22:30 hs<br><small style="font-size:12px;color:var(--silver)">Ingreso 22:00</small></div>
+      </div>
       
       <div class="d-card d-full">
         <div class="dl" style="margin-bottom:10px; color:var(--white)">Cuenta Regresiva</div>
