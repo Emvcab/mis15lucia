@@ -227,6 +227,8 @@ section::before {
 input, select, textarea{ font-size:16px!important; }
 .map-btn, #mbtn{ min-height:44px; }
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
 </head>
 <body>
 
@@ -358,8 +360,8 @@ input, select, textarea{ font-size:16px!important; }
       <button class="map-btn" style="width:100%; background:var(--white); color:var(--blk); border-color:var(--white); justify-content:center" onclick="addSong()">★ AGREGAR ★</button>
     </div>
     <div class="sl" id="sl">
-      <div class="si"><span class="sn">🎵</span><div><div class="sti">I Don't Care</div></div></div>
-      <div class="si"><span class="sn">🎵</span><div><div class="sti">Wannabe</div></div></div>
+      
+      
     </div>
   </div>
 </section>
@@ -419,7 +421,7 @@ function upCD(){let d=ev-new Date();if(d<0)d=0;document.getElementById('cd-d').t
 upCD();setInterval(upCD,1000);
 
 /* Playlist local */
-function addSong(){const t=document.getElementById('st').value.trim();if(!t)return;const li=document.getElementById('sl'),d=document.createElement('div');d.className='si';d.innerHTML=`<span class="sn">🎵</span><div><div class="sti">${t}</div></div>`;li.appendChild(d);document.getElementById('st').value='';}
+function addSong(){ if(window.addSongFirebase) window.addSongFirebase(); }
 
 /* Control de música */
 let isPlaying=false;
@@ -448,6 +450,62 @@ function toggleMusic(){
   }, {threshold: 0.3});
   obs.observe(img);
 })();
+</script>
+<script>
+window.addEventListener('load', function() {
+  if (typeof firebase === 'undefined') {
+    console.error('Firebase no cargo');
+    return;
+  }
+  var cfg = {
+    apiKey: "AIzaSyBdUuyRNDhyC9BVNQbs5ETCo9i0DUEIhAI",
+    authDomain: "mis15lucia.firebaseapp.com",
+    databaseURL: "https://mis15lucia-default-rtdb.firebaseio.com",
+    projectId: "mis15lucia",
+    storageBucket: "mis15lucia.firebasestorage.app",
+    messagingSenderId: "532209660868",
+    appId: "1:532209660868:web:1b64fd58b4609e789fea91"
+  };
+  if (!firebase.apps.length) firebase.initializeApp(cfg);
+  var db = firebase.database();
+  var pRef = db.ref('playlist');
+
+  window.addSongFirebase = function() {
+    var el = document.getElementById('st');
+    if (!el) return;
+    var t = (el.value || '').trim();
+    if (!t) return;
+    var btn = document.querySelector('#s6 .map-btn');
+    if (btn) { btn.textContent = 'Enviando...'; btn.disabled = true; }
+    pRef.push({ cancion: t, ts: firebase.database.ServerValue.TIMESTAMP })
+      .then(function() {
+        el.value = '';
+        if (btn) { btn.textContent = '\u2605 AGREGAR \u2605'; btn.disabled = false; }
+      })
+      .catch(function(e) {
+        console.error(e);
+        if (btn) { btn.textContent = '\u2605 AGREGAR \u2605'; btn.disabled = false; }
+      });
+  };
+
+  pRef.on('value', function(snap) {
+    var lista = document.getElementById('sl');
+    if (!lista) return;
+    lista.innerHTML = '';
+    var data = snap.val();
+    if (!data) {
+      lista.innerHTML = '<div class="si" style="opacity:.5;justify-content:center;text-align:center;font-family:\'Dancing Script\',cursive;font-size:18px;color:var(--silver)">\u00a1Sug\u00eer una canci\u00f3n!</div>';
+      return;
+    }
+    var arr = Object.values(data).sort(function(a,b){ return (a.ts||0)-(b.ts||0); });
+    arr.forEach(function(item) {
+      var d = document.createElement('div');
+      d.className = 'si';
+      d.innerHTML = '<span class="sn">&#127925;</span><div><div class="sti">' + item.cancion + '</div></div>';
+      lista.appendChild(d);
+    });
+  });
+});
 </script>
 </body>
 </html>
