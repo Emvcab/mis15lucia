@@ -42,7 +42,7 @@ body {
 #mbtn{position:fixed;bottom:20px;right:20px;width:50px;height:50px;background:var(--blk);color:var(--white);border:3px solid var(--silver);font-size:18px;z-index:700;display:flex;align-items:center;justify-content:center;border-radius:50%;outline:none;animation:btnPulse 2s ease-in-out infinite}
 @keyframes btnPulse{0%,100%{filter:drop-shadow(0 0 4px var(--dark-silver))}50%{filter:drop-shadow(0 0 12px var(--silver))}}
 
-/* ── SECCIONES CON DESPLAZAMIENTO PARALLAX ORIGINAL FIJO ── */
+/* ── SECCIONES CON DESPLAZAMIENTO PARALLAX FIJO ORIGINAL ── */
 section{
   min-height: 100vh;
   display:flex;
@@ -55,7 +55,7 @@ section{
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  background-attachment:fixed; /* Efecto fijo original intacto */
+  background-attachment:fixed;
 }
 
 section::before {
@@ -80,7 +80,7 @@ section::before {
   background: transparent;
 }
 
-/* ── CONTENEDORES DE CONTENIDO EN FORMATO VERTICAL 9:16 ── */
+/* ── COMPOSICIÓN VERTICAL DE SECCIONES 9:16 ── */
 .portada-916 {
   position: relative;
   z-index: 5;
@@ -93,7 +93,6 @@ section::before {
   text-align: center;
 }
 
-/* Ajuste del contenedor de cierre para evitar recortes de texto en los lados */
 .cierre-916 {
   position: relative;
   z-index: 5;
@@ -105,7 +104,10 @@ section::before {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  padding: 0 10px;
+  padding: 0 16px;
+  /* MEJORA INYECTADA: Crea una zona de alto aislamiento visual para las fuentes sobre el video */
+  backdrop-filter: blur(3px) brightness(0.65);
+  -webkit-backdrop-filter: blur(3px) brightness(0.65);
 }
 
 .sec-title {
@@ -142,7 +144,7 @@ section::before {
 
 .content-container{position:relative;z-index:5;width:100%;display:flex;flex-direction:column;align-items:center}
 
-/* ── FONDOS NATIVOS ORIGINALES CONSERVADOS ── */
+/* ── FONDOS ORIGINALES RESTAURADOS ── */
 #s1 { background-image: url('https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1920&auto=format&fit=crop'); }
 #s2 { background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1920&auto=format&fit=crop'); }
 #s4 { background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1920&auto=format&fit=crop'); }
@@ -238,7 +240,7 @@ input, select, textarea{ font-size:16px!important; }
   <button class="nd" data-target="s8"></button>
 </nav>
 
-<button id="mbtn">🎵</button>
+<button id="mbtn" onclick="toggleMusic()">🎵</button>
 <div style="position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;">
   <iframe id="yt-player" src="" allow="autoplay" style="width:1px;height:1px;border:none;"></iframe>
 </div>
@@ -250,11 +252,8 @@ input, select, textarea{ font-size:16px!important; }
   
   <div class="portada-916">
     <div style="font-family:'Dancing Script',cursive; font-weight:400; font-size:clamp(28px, 6.5vw, 42px); letter-spacing:.05em; color:#ffffff; text-shadow:0 0 20px rgba(255,255,255,.85), 0 2px 10px rgba(0,0,0,.95); margin-top: 10vh;">It's my</div>
-    
     <div style="font-family:'Cormorant Garamond',serif; font-weight:700; font-size:clamp(120px, 26vw, 190px); line-height:1; color:#ffffff; text-shadow:0 0 35px rgba(255,255,255,.9), 2px 2px 0 rgba(0,0,0,.8); white-space:nowrap;">15<sup style="font-size:.35em; vertical-align:super; font-weight:500">th</sup></div>
-    
-    <div style="font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(34px, 8.5vw, 62px); line-height:1.1; letter-spacing:.15em; text-transform:uppercase; color:#ffffff; text-shadow:0 0 20px rgba(255,255,255,.85), 0 2px 10px rgba(0,0,0,.95);">Birthday!</div>
-    
+    <div style="font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(34px, 8.5vw, 62px); line-height:1.1; letter-spacing:.15em; text-transform:uppercase; color:#ffffff; text-shadow:0 0 20px rgba(255,255,255,.85), 0 2px 10px rgba(0,0,0,.95); margin-top: 10vh;">Birthday!</div>
     <div style="font-family:'Great Vibes',cursive; font-weight:400; font-size:clamp(75px, 16vw, 120px); line-height:1; color:#ffffff; text-shadow:0 0 20px rgba(255,255,255,.85), 2px 2px 0 var(--dark-silver), 4px 4px 0 rgba(0,0,0,0.9); margin-bottom: 10vh;">Lucía</div>
   </div>
 </section>
@@ -351,10 +350,12 @@ input, select, textarea{ font-size:16px!important; }
     <p class="sec-sub">> sugerí una canción <</p>
     <div class="sf">
       <div><label>> Canción / Artista</label><input type="text" id="st" placeholder="Ej: Vogue - Madonna..."></div>
-      <button class="map-btn" style="width:100%; background:var(--white); color:var(--blk); border-color:var(--white); justify-content:center" id="add-song-btn">★ AGREGAR ★</button>
+      <button class="map-btn" style="width:100%; background:var(--white); color:var(--blk); border-color:var(--white); justify-content:center" onclick="addSong()">★ AGREGAR ★</button>
     </div>
     <div class="sl" id="sl">
-      </div>
+      <div class="si"><span class="sn">🎵</span><div><div class="sti">I Don't Care</div></div></div>
+      <div class="si"><span class="sn">🎵</span><div><div class="sti">Wannabe</div></div></div>
+    </div>
   </div>
 </section>
 
@@ -366,38 +367,21 @@ input, select, textarea{ font-size:16px!important; }
   </video>
   
   <div class="cierre-916">
-    <div style="font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(110px, 24vw, 210px); line-height:1; background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(4px 4px 0px rgba(0,0,0,1)) drop-shadow(0px 10px 25px rgba(0,0,0,0.95)); padding:0 4px; margin-top: 8vh;">15<sup style="font-size:.28em;vertical-align:super;font-weight:300">th</sup></div>
+    <div style="font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(160px, 38vw, 320px); line-height:1; background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(4px 4px 0px rgba(0,0,0,1)) drop-shadow(0px 15px 35px rgba(0,0,0,1)); padding:0 4px; margin-top: 6vh;">15<sup style="font-size:.28em;vertical-align:super;font-weight:300">th</sup></div>
     
-    <div style="font-family:'Dancing Script',cursive; font-weight:400; font-size:clamp(32px,7vw,58px); line-height:1.1; letter-spacing:.25em; background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(2px 2px 0px rgba(0,0,0,1)) drop-shadow(0px 4px 10px rgba(0,0,0,0.9))">birthday</div>
+    <div style="font-family:'Dancing Script',cursive; font-weight:400; font-size:clamp(32px,7vw,58px); line-height:1.1; letter-spacing:.25em; background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(3px 3px 0px rgba(0,0,0,1)) drop-shadow(0px 8px 16px rgba(0,0,0,1))">birthday</div>
     
-    <div style="font-family:'Great Vibes',cursive; font-weight:400; font-size:clamp(65px, 14vw, 105px); line-height:1.3; background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(4px 4px 0px rgba(0,0,0,1)) drop-shadow(0px 8px 20px rgba(0,0,0,0.95)); margin-bottom: 2vh;">Lucía</div>
+    <div style="font-family:'Great Vibes',cursive; font-weight:400; font-size:clamp(65px, 14vw, 105px); line-height:1.3; background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(4px 4px 0px rgba(0,0,0,1)) drop-shadow(0px 12px 25px rgba(0,0,0,1)); margin-bottom: 2vh;">Lucía</div>
     
     <div style="width: 100%; margin-bottom: 8vh;">
-      <div style="font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:clamp(14px,3vw,22px); letter-spacing:.6em; color:var(--white); text-shadow:0 4px 12px rgba(0,0,0,1)">2026</div>
+      <div style="font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:clamp(14px,3vw,22px); letter-spacing:.6em; color:var(--white); text-shadow:0 3px 10px rgba(0,0,0,1), 0 0 6px rgba(0,0,0,1)">2026</div>
       <div style="width:140px; height:1px; background:linear-gradient(90deg,transparent,var(--silver),var(--white),var(--silver),transparent); margin:14px auto"></div>
-      <p style="font-family:'Josefin Sans',sans-serif; font-weight:100; font-size:11px; letter-spacing:.4em; color:var(--silver); text-transform:uppercase; text-shadow: 0 2px 8px rgba(0,0,0,1)">Con amor · La familia</p>
+      <p style="font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:11px; letter-spacing:.4em; color:var(--silver); text-transform:uppercase; text-shadow: 0 2px 8px rgba(0,0,0,1)">Con amor · La familia</p>
     </div>
   </div>
 </section>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "mis15lucia.firebaseapp.com",
-  databaseURL: "https://mis15lucia-default-rtdb.firebaseio.com",
-  projectId: "mis15lucia",
-  storageBucket: "mis15lucia.firebasestorage.app",
-  messagingSenderId: "532209660868",
-  appId: "1:532209660868:web:1b64fd58b4609e789fea91"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-const songsRef = ref(db, "playlist");
-
+<script>
 /* cursor tracking (Solo desktop) */
 if (window.matchMedia("(pointer: fine)").matches) {
   const cur=document.getElementById('cur'),trail=document.getElementById('cur-trail');
@@ -429,41 +413,8 @@ const ev=new Date('2026-11-07T22:30:00');
 function upCD(){let d=ev-new Date();if(d<0)d=0;document.getElementById('cd-d').textContent=String(Math.floor(d/86400000)).padStart(2,'0');document.getElementById('cd-h').textContent=String(Math.floor((d%86400000)/3600000)).padStart(2,'0');document.getElementById('cd-m').textContent=String(Math.floor((d%3600000)/60000)).padStart(2,'0');document.getElementById('cd-s').textContent=String(Math.floor((d%60000)/1000)).padStart(2,'0');}
 upCD();setInterval(upCD,1000);
 
-/* Lógica de Firebase */
-function addSong(){
-  const t = document.getElementById('st').value.trim();
-  if(!t) return;
-  
-  push(songsRef, {
-    texto: t
-  }).then(() => {
-    document.getElementById('st').value = '';
-  }).catch((error) => {
-    console.error("Error en Firebase:", error);
-  });
-}
-
-document.getElementById('add-song-btn').addEventListener('click', addSong);
-
-onValue(songsRef, (snapshot) => {
-  const li = document.getElementById('sl');
-  li.innerHTML = '';
-  
-  if (snapshot.exists()) {
-    const data = snapshot.val();
-    Object.values(data).forEach(song => {
-      const d = document.createElement('div');
-      d.className = 'si';
-      d.innerHTML = `<span class="sn">🎵</span><div><div class="sti">${song.texto}</div></div>`;
-      li.appendChild(d);
-    });
-  } else {
-    li.innerHTML = `
-      <div class="si"><span class="sn">🎵</span><div><div class="sti">I Don't Care</div></div></div>
-      <div class="si"><span class="sn">🎵</span><div><div class="sti">Wannabe</div></div></div>
-    `;
-  }
-});
+/* Playlist local */
+function addSong(){const t=document.getElementById('st').value.trim();if(!t)return;const li=document.getElementById('sl'),d=document.createElement('div');d.className='si';d.innerHTML=`<span class="sn">🎵</span><div><div class="sti">${t}</div></div>`;li.appendChild(d);document.getElementById('st').value='';}
 
 /* Control de música */
 let isPlaying=false;
@@ -472,10 +423,9 @@ function toggleMusic(){
   if(!isPlaying){isPlaying=true;p.src=`https://www.youtube-nocookie.com/embed/UxxajLWwzqY?autoplay=1&start=20&loop=1&playlist=UxxajLWwzqY&controls=0&rel=0&modestbranding=1`;btn.innerHTML='⏸';}
   else{isPlaying=false;p.src='';btn.innerHTML='🎵';}
 }
-document.getElementById('mbtn').addEventListener('click', toggleMusic);
 
 /* spin 360 */
-(()=>{
+(()=> {
   const img = document.getElementById('foto-lucia');
   if(!img) return;
   let spun = false;
