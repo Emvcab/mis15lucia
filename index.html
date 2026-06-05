@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>15 Años · Estilo 90s Silver & Black Text Party</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@100;300;400&family=Great+Vibes&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -17,7 +17,6 @@ html{scroll-behavior:smooth}
 body {
   background: var(--blk);
   font-family: 'Cormorant Garamond', serif;
-  font-style: normal; /* Cambiado a normal para más legibilidad */
   color: var(--white);
   overflow-x: hidden;
   cursor: none;
@@ -54,7 +53,6 @@ section{
   background-attachment:fixed;
 }
 
-/* Capa oscura transparente para que las letras resalten */
 section::before {
   content: '';
   position: absolute;
@@ -63,7 +61,6 @@ section::before {
   z-index: 1;
 }
 
-/* VIDEO DE FONDO PRIMERA SECCIÓN */
 .video-bg-container {
   position: absolute;
   top: 0;
@@ -78,34 +75,39 @@ section::before {
   background: transparent;
 }
 
-/* Títulos con efecto Cromo Metálico/Plateado actualizados */
+/* Desactivar el overlay general en la última sección */
+#s8::before {
+  background: transparent;
+}
+
 .sec-title {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-style: italic;
-  letter-spacing: .2em;
-  font-size: clamp(28px, 6vw, 46px);
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  font-size: clamp(32px, 5.5vw, 48px);
   text-align: center;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   color: var(--white);
-  text-shadow: 3px 3px 0 var(--dark-silver), -1px -1px 0 var(--blk);
+  text-shadow: 2px 2px 0px rgba(102, 102, 102, 0.5), -1px -1px 0px var(--blk);
   position: relative;
   z-index: 5;
 }
 
-/* Textos de detalle actualizados con Montserrat */
 .sec-sub {
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 0.2em;
-  font-size: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  font-size: 11px;
   text-transform: uppercase;
   text-align: center;
-  margin-bottom: 36px;
-  padding: 4px 12px;
-  background: var(--blk);
+  margin-bottom: 40px;
+  padding: 6px 16px;
+  background: rgba(5, 5, 10, 0.85);
   color: var(--silver);
   display: inline-block;
-  border: 1px solid var(--silver);
+  border: 1px solid rgba(204, 204, 204, 0.3);
   position: relative;
   z-index: 5;
 }
@@ -115,59 +117,38 @@ section::before {
 /* ── FOTOS DE FONDO FIESTA OTRAS SECCIONES ── */
 #s1 { background-image: url('https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1920&auto=format&fit=crop'); }
 #s2 { background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1920&auto=format&fit=crop'); }
-#s3 { background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1920&auto=format&fit=crop'); }
-#s4 { background-image: url('https://images.unsplash.com/photo-1574391884720-bbc3740c59d1?q=80&w=1920&auto=format&fit=crop'); }
-#s5 { background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1920&auto=format&fit=crop'); }
-#s6 { background-image: url('https://images.unsplash.com/photo-1545128485-c400e7702796?q=80&w=1920&auto=format&fit=crop'); }
-#s7 { background-image: url('https://images.unsplash.com/photo-1482440308425-276ad0f28b19?q=80&w=1920&auto=format&fit=crop'); }
-
-/* ── TARJETAS E INTERFACES EN NEGRO Y PLATA ── */
-.s0-content {
-  background: transparent;
-  padding: 20px;
-  border: none;
-  box-shadow: none;
-  backdrop-filter: blur(4px);
-}
-.s0-15 { 
-  font-family: 'Pinyon Script', cursive; 
-  font-weight: 400; 
-  font-size: clamp(130px, 30vw, 230px); 
-  line-height: 1.05; padding: 20px 0; display:block; overflow:visible;
-  background: linear-gradient(180deg, var(--white) 0%, var(--silver) 50%, var(--dark-silver) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(6px 6px 0 var(--blk));
-  font-weight: bold;
-}
-.s0-name {
-  font-family: 'Great Vibes', cursive;
-  font-weight: 700;
-  font-style: italic;
-  font-size: clamp(45px, 11vw, 85px);
-  color: var(--white);
-  text-shadow: 4px 4px 0 var(--dark-silver), -4px -4px 0 var(--silver), 6px 6px 0 var(--blk);
-}
+#s4 { background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1920&auto=format&fit=crop'); }
 
 .d-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:500px;width:100%}
 .d-card{background:var(--card);border:3px solid var(--silver);padding:20px 16px;text-align:center;box-shadow:6px 6px 0 var(--dark-silver);backdrop-filter:blur(8px)}
 .d-card .di {font-size:32px;margin-bottom:6px;display:flex;justify-content:center;align-items:center;}
 
 .d-card .dl, .cl {
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 0.2em;
-  font-size: 16px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  font-size: 12px;
   color: var(--silver);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.dv {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--white);
 }
 
 .d-full{grid-column:1/-1;border-color:var(--white);box-shadow:6px 6px 0 var(--silver)}
 
-.cd{display:flex;justify-content:center;gap:14px;margin-top:10px}
-.cdb{background:rgba(255,255,255,0.08);padding:6px;border:1px solid var(--silver)}
-.cn{font-family:'Pinyon Script',cursive;font-weight:400;font-size:46px;color:var(--white);text-shadow:2px 2px 0 var(--dark-silver)}
+.cd{display:flex;justify-content:center;gap:14px;margin-top:14px}
+.cdb{background:rgba(255,255,255,0.08);padding:14px 10px 10px;border:1px solid rgba(204, 204, 204, 0.4);min-width:78px}
+.cn{font-family:'Playfair Display',serif;font-weight:700;font-size:34px;color:var(--white);text-shadow:2px 2px 0 var(--dark-silver);line-height:1;margin-bottom:8px}
 
 .map-wrap{border:4px solid var(--white);box-shadow:10px 10px 0 var(--blk);width:100%;max-width:540px}
-.map-btn{background:var(--blk);border:3px solid var(--silver);font-weight:bold;cursor:none;padding:12px 20px;color:var(--white);text-decoration:none;text-transform:uppercase;font-size:12px;display:inline-block;box-shadow:4px 4px 0 var(--dark-silver)}
+.map-btn{background:var(--blk);border:3px solid var(--silver);font-family: 'Josefin Sans', sans-serif;font-weight:400;letter-spacing: 0.2em;cursor:none;padding:12px 20px;color:var(--white);text-decoration:none;text-transform:uppercase;font-size:11px;display:inline-flex;align-items:center;box-shadow:4px 4px 0 var(--dark-silver)}
 .map-btn:hover{background:var(--white);color:var(--blk);border-color:var(--white)}
 
 .dc-pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:460px;margin-bottom:15px}
@@ -178,9 +159,12 @@ section::before {
 .rsvp-box input,.rsvp-box select,.rsvp-box textarea{border:2px solid var(--silver);background:#111;font-size:14px;color:var(--white);padding:10px;width:100%}
 
 .rsvp-box label{
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 100;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  font-size: 12px;
   color: var(--silver);
+  text-transform: uppercase;
   display: block;
   margin-bottom: 4px;
 }
@@ -189,9 +173,21 @@ section::before {
 .gc{background:var(--card);border:3px solid var(--silver);box-shadow:6px 6px 0 var(--dark-silver);padding:16px;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:430px;margin-bottom:10px;backdrop-filter:blur(8px)}
 .copy-btn{background:var(--white);color:var(--blk);font-weight:bold;border:none;box-shadow:2px 2px 0 var(--dark-silver);padding:6px 12px;cursor:none}
 
-.sf{background:var(--card);padding:20px;border:3px solid var(--silver);box-shadow:8px 8px 0 var(--dark-silver);width:100%;max-width:430px;backdrop-filter:blur(8px)}
-.sf input{width:100%;padding:10px;background:#111;border:2px solid var(--silver);color:#fff;margin-bottom:10px}
-.si{background:var(--blk);border:2px solid var(--silver);padding:10px;margin-top:8px;display:flex;align-items:center;gap:10px}
+.sf{background:var(--card);padding:26px 20px;border:3px solid var(--silver);box-shadow:8px 8px 0 var(--dark-silver);width:100%;max-width:430px;backdrop-filter:blur(8px)}
+.sf label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  font-size: 11px;
+  color: var(--silver);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+.sf input{width:100%;padding:12px;background:#111;border:2px solid var(--silver);color:#fff;font-family: 'Cormorant Garamond', serif;font-size:16px;margin-bottom:16px}
+.si{background:var(--card);border:1px solid rgba(255,255,255,0.1);padding:12px;margin-top:8px;display:flex;align-items:center;gap:14px}
+.sti{font-family: 'Playfair Display', serif; font-size:16px; font-weight:700; color:var(--white); margin-bottom:2px;}
+.sar{font-family: 'Cormorant Garamond', serif; font-size:14px; font-style:italic; color:var(--silver);}
 
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:540px;width:100%}
 .gph{border:3px solid var(--silver);box-shadow:5px 5px 0 var(--blk);aspect-ratio:1;overflow:hidden}
@@ -209,30 +205,53 @@ section::before {
   .gc{flex-direction:column;align-items:flex-start;gap:10px}
 }
 
-body, p, div, span, a, button, label, input, textarea, select,
-.sec-title, .sec-sub, .s0-name, .s0-pre, .s0-años, .dl, .dv, .cl, .cn {
-    font-family: 'Cormorant Garamond', serif !important;
-    font-style: normal !important;
-    letter-spacing: 0.04em;
+/* ── rotación 360 foto ── */
+.foto-spin {
+  transition: transform 1.2s cubic-bezier(.4,0,.2,1);
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+.foto-spin.spin-active {
+  animation: spin360 1.2s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes spin360 {
+  0%   { transform: rotateY(0deg) scale(1); }
+  50%  { transform: rotateY(180deg) scale(1.04); }
+  100% { transform: rotateY(360deg) scale(1); }
 }
 
-.sec-title{
-    font-size: clamp(38px, 6vw, 60px);
-    font-weight: 600;
-    text-transform:none;
+/* ── MÓVIL OPTIMIZADO ── */
+@media(max-width:480px){
+  /* Sombreado rectangular también adaptado para móviles */
+  .s0-content, [class*="s0-content"], section#s0 > div{
+    width:96vw!important;
+    padding:20px 12px 28px!important;
+    border-radius: 0px !important;
+  }
+  section{ padding:50px 16px!important; }
+  .d-grid{ grid-template-columns:1fr!important; }
+  .d-full{ grid-column:auto!important; }
+  .map-wrap iframe{ height:220px!important; }
+  .map-acts{ flex-direction:column!important; align-items:stretch!important; gap:10px!important; }
+  .map-btn{ justify-content:center!important; text-align:center!important; width:100%!important; }
+  
+  .cd{ gap:6px!important; margin-top:12px!important }
+  .cn{ font-size:28px!important; margin-bottom:4px!important; }
+  .cdb{ min-width:64px!important; padding:10px 4px 6px!important;}
+  
+  #rsvp-form-wrap a{ font-size:10px!important; padding:14px 16px!important; }
+  .sf input{ font-size:16px!important; } 
+  #nav{ right:10px!important; }
+  #mbtn{ bottom:16px!important; right:16px!important; width:46px!important; height:46px!important; }
 }
 
-.s0-name{
-    font-size: clamp(85px, 16vw, 140px);
-    font-weight: 600;
-    text-shadow: 4px 4px 0 var(--blk) !important;
+input, select, textarea{
+  font-size:16px!important;
 }
-
-.sec-sub{
-    font-size:18px;
-    letter-spacing:0.15em;
+.btn-rsvp, .btn-song, .map-btn, .copy-btn, #mbtn{
+  min-height:44px;
 }
-
 </style>
 </head>
 <body>
@@ -241,15 +260,15 @@ body, p, div, span, a, button, label, input, textarea, select,
 <div id="cur-trail"></div>
 
 <nav id="nav">
-  <button class="nd active" onclick="goTo('s0')"></button>
-  <button class="nd" onclick="goTo('s1')"></button>
-  <button class="nd" onclick="goTo('s2')"></button>
-  <button class="nd" onclick="goTo('s4')"></button>
-  <button class="nd" onclick="goTo('s6')"></button>
-  <button class="nd" onclick="goTo('s7')"></button>
+  <button class="nd active" data-target="s0"></button>
+  <button class="nd" data-target="s1"></button>
+  <button class="nd" data-target="s2"></button>
+  <button class="nd" data-target="s4"></button>
+  <button class="nd" data-target="s6"></button>
+  <button class="nd" data-target="s8"></button>
 </nav>
 
-<button id="mbtn" onclick="toggleMusic()">🎵</button>
+<button id="mbtn">🎵</button>
 <div style="position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;">
   <iframe id="yt-player" src="" allow="autoplay" style="width:1px;height:1px;border:none;"></iframe>
 </div>
@@ -260,11 +279,11 @@ body, p, div, span, a, button, label, input, textarea, select,
     Tu navegador no soporta videos de fondo.
   </video>
   
-  <div style="background:rgba(0,0,0,0.4);padding:28px 20px 36px;border-radius:14px;backdrop-filter:blur(3px);width:min(90vw,580px);text-align:center;overflow:visible;display:flex;flex-direction:column;align-items:center;gap:2px;">
-    <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(18px,4vw,36px);line-height:1.4;letter-spacing:.45em;background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(1px 1px 0 rgba(0,0,0,.9))">It's my</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(90px,20vw,180px);line-height:1.1;background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.9));padding:0 8px;white-space:nowrap">15<sup style="font-size:.3em;vertical-align:super;font-weight:400">th</sup></div>
-    <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,6vw,56px);line-height:1.2;letter-spacing:.22em;background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(2px 2px 0 rgba(0,0,0,.9))">birthday</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(48px,11vw,100px);line-height:1.2;color:var(--white);text-shadow:3px 3px 0 rgba(0,0,0,.9);margin-top:6px">Lucía</div>
+  <div style="background:rgba(0,0,0,0.15);padding:28px 20px 36px;border-radius:0px;backdrop-filter:blur(2px);width:min(90vw,580px);text-align:center;overflow:visible;display:flex;flex-direction:column;align-items:center;gap:2px;box-shadow: 0 4px 30px rgba(0,0,0,0.2);">
+    <div style="font-family:'Dancing Script',cursive;font-weight:400;font-size:clamp(24px,6vw,44px);line-height:1.3;letter-spacing:.05em;color:#ffffff;text-shadow:0 0 20px rgba(255,255,255,.85),0 2px 10px rgba(0,0,0,.95)">It's my</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(100px,22vw,190px);line-height:1.05;color:#ffffff;text-shadow:0 0 30px rgba(255,255,255,.9),0 0 60px rgba(220,220,255,.4),2px 2px 0 rgba(0,0,0,.8);padding:0 8px;white-space:nowrap">15<sup style="font-size:.35em;vertical-align:super;font-weight:500">th</sup></div>
+    <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(34px,8vw,68px);line-height:1.1;letter-spacing:.12em;text-transform:uppercase;color:#ffffff;text-shadow:0 0 20px rgba(255,255,255,.85),0 2px 10px rgba(0,0,0,.95)">Birthday!</div>
+    <div style="font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(65px,14vw,115px);line-height:1;color:#ffffff;text-shadow:0 0 20px rgba(255,255,255,.85),2px 2px 0 var(--dark-silver),4px 4px 0 rgba(0,0,0,0.9);margin-top:12px">Lucía</div>
   </div>
 </section>
 
@@ -281,14 +300,13 @@ body, p, div, span, a, button, label, input, textarea, select,
       <div style="position:absolute;bottom:-8px;left:-8px;width:20px;height:20px;border-bottom:2px solid var(--plat);border-left:2px solid var(--plat);z-index:1"></div>
       <div style="position:absolute;bottom:-8px;right:-8px;width:20px;height:20px;border-bottom:2px solid var(--plat);border-right:2px solid var(--plat);z-index:1"></div>
       
-      <img src="https://github.com/Emvcab/mis15lucia/blob/main/foto-lucia.jpeg?raw=true" alt="Lucía" style="display:block;width:min(350px,85vw);height:auto;object-fit:cover;position:relative;z-index:0;filter:brightness(1.02) contrast(1.02); border:1px solid rgba(255,255,255,0.15)">
+      <img id="foto-lucia" src="https://github.com/Emvcab/mis15lucia/blob/main/foto-lucia.jpeg?raw=true" alt="Lucía" class="foto-spin" style="display:block;width:min(350px,85vw);height:auto;object-fit:cover;position:relative;z-index:0;filter:brightness(1.02) contrast(1.02); border:1px solid rgba(255,255,255,0.15)">
     </div>
-    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(16px,3vw,22px);color:rgba(255,255,255,.92);max-width:540px;line-height:1.8;margin:22px auto 0;text-align:center;padding:0 20px;text-shadow:0 2px 16px rgba(0,0,0,.8)">"Hoy estoy radiante de emoción y alegría,<br>hoy es el día soñado; esperado.<br>Quiero compartir con cada uno de ustedes<br>esta noche que será inolvidable"</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,3.5vw,23px);font-weight:400;color:rgba(255,255,255,.95);max-width:540px;line-height:1.7;margin:26px auto 0;text-align:center;padding:0 20px;text-shadow:0 2px 16px rgba(0,0,0,.8)">"Hoy estoy radiante de emoción y alegría,<br>hoy es el día soñado; esperado.<br>Quiero compartir con cada uno de ustedes<br>esta noche que será inolvidable"</p>
   </div>
 </section>
 
 <div class="rainbow-div"></div>
-
 
 <section id="s1">
   <div class="content-container">
@@ -308,11 +326,11 @@ body, p, div, span, a, button, label, input, textarea, select,
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--white);"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
         </div>
         <div class="dl">Hora</div>
-        <div class="dv">22:30 hs<br><small style="font-size:12px;color:var(--silver)">Ingreso 22:00</small></div>
+        <div class="dv">22:30 hs<br><small style="font-size:12px;color:var(--silver);font-family:'Josefin Sans',sans-serif;letter-spacing:0.05em">Ingreso 22:00</small></div>
       </div>
       
       <div class="d-card d-full">
-        <div class="dl" style="margin-bottom:10px; color:var(--white)">Cuenta Regresiva</div>
+        <div class="dl" style="margin-bottom:12px; color:var(--white)">Cuenta Regresiva</div>
         <div class="cd">
           <div class="cdb"><div class="cn" id="cd-d">--</div><div class="cl">días</div></div>
           <div class="cdb"><div class="cn" id="cd-h">--</div><div class="cl">horas</div></div>
@@ -333,19 +351,21 @@ body, p, div, span, a, button, label, input, textarea, select,
     <div class="map-wrap">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3528.599782421002!2d-64.24899682418861!3d-27.822087476117108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x943b526adf33f96b%3A0xbdbe32efa1a11318!2s5QH3%2B5C8%2C%20Santiago%20del%20Estero!5e0!3m2!1ses!2sar!4v1780332724223!5m2!1ses!2sar" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <div class="map-acts" style="margin-top:15px;">
+    <div class="map-acts" style="margin-top:18px; display:flex; gap:14px;">
       <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=5QH3%2B5C8%20Santiago%20del%20Estero" target="_blank">📍 De Lorenzo Eventos</a>
       <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=5QH3%2B5C8%20Santiago%20del%20Estero" target="_blank">🗺️ Cómo llegar</a>
     </div>
   </div>
 </section>
 
+<div class="rainbow-div"></div>
+
 <section id="s4">
   <div class="content-container">
     <div class="sec-title">Confirmá</div>
-    <p class="sec-sub">> confirmar hasta el 21 de septiembre <</p>
+    <p class="sec-sub" style="margin-bottom:24px">confirmar hasta el <span style="font-size:14px;font-family:'Playfair Display',serif;font-style:italic;color:var(--white);font-weight:700;letter-spacing:0.1em;text-transform:uppercase">21 de septiembre</span></p>
     <div id="rsvp-form-wrap" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:10px;">
-      <a href="https://wa.me/5493856176631?text=Hola!%20Confirmo%20mi%20asistencia%20al%2015%20de%20Lucía%20%20Nombre%20y%20apellido:" target="_blank" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;justify-content:center;padding:16px 32px;background:#25d366;color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.25em;text-transform:uppercase;width:100%;max-width:360px;">
+      <a href="https://wa.me/5493856176631?text=Hola!%20Confirmo%20mi%20asistencia%20al%2015%20de%20Lucía%20%20Nombre%20y%20apellido:" target="_blank" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;justify-content:center;padding:16px 32px;background:#25d366;color:#fff;font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:12px;letter-spacing:.25em;text-transform:uppercase;width:100%;max-width:360px;box-shadow:4px 4px 0 var(--dark-silver)">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.851L.053 23.947a.5.5 0 0 0 .608.608l6.097-1.48A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 0 1-5.039-1.374l-.361-.214-3.741.981.998-3.641-.235-.374A9.859 9.859 0 0 1 2.118 12C2.118 6.538 6.538 2.118 12 2.118c5.463 0 9.882 4.42 9.882 9.882 0 5.463-4.419 9.882-9.882 9.882z"/></svg>
         Confirmar por WhatsApp
       </a>
@@ -360,13 +380,11 @@ body, p, div, span, a, button, label, input, textarea, select,
     <div class="sec-title">Playlist</div>
     <p class="sec-sub">> sugerí una canción <</p>
     <div class="sf">
-      <div><label>> Canción</label><input type="text" id="st" placeholder="Ej: Vogue..."></div>
-      <button class="map-btn" style="width:100%; background:var(--white); color:var(--blk); border-color:var(--white);" onclick="addSong()">★ AGREGAR ★</button>
+      <div><label>> Canción / Artista</label><input type="text" id="st" placeholder="Ej: Vogue - Madonna..."></div>
+      <button class="map-btn" style="width:100%; background:var(--white); color:var(--blk); border-color:var(--white); justify-content:center" id="add-song-btn">★ AGREGAR ★</button>
     </div>
     <div class="sl" id="sl" style="width:100%; max-width:430px;">
-      <div class="si"><span class="sn">🎵</span><div><div class="sti">I Don't Care</div><div class="sar">Ed Sheeran & Justin Bieber</div></div></div>
-      <div class="si"><span class="sn">🎵</span><div><div class="sti">Wannabe</div><div class="sar">Spice Girls</div></div></div>
-    </div>
+      </div>
   </div>
 </section>
 
@@ -376,18 +394,41 @@ body, p, div, span, a, button, label, input, textarea, select,
   <video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
     <source src="video-fondo.mp4" type="video/mp4">
   </video>
-  <div style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1"></div>
+  
   <div style="position:relative;z-index:2;text-align:center;padding:40px 24px;display:flex;flex-direction:column;align-items:center;gap:4px">
-    <div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(140px,32vw,280px);line-height:1;background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(6px 6px 0 rgba(0,0,0,.9));padding:0 12px;white-space:nowrap">15<sup style="font-size:.28em;vertical-align:super;font-weight:300">th</sup></div>
-    <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,7vw,62px);line-height:1.1;letter-spacing:.25em;background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(2px 2px 0 rgba(0,0,0,.9))">birthday</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(58px,14vw,128px);line-height:1.05;background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.9))">Lucía</div>
-    <div style="font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:clamp(14px,3vw,28px);letter-spacing:.7em;color:var(--silver);margin-top:10px;text-shadow:0 2px 14px rgba(0,0,0,.9)">2026</div>
-    <div style="width:180px;height:1px;background:linear-gradient(90deg,transparent,var(--silver),var(--white),var(--silver),transparent);margin:14px auto"></div>
-    <p style="font-family:'Josefin Sans',sans-serif;font-weight:100;font-size:11px;letter-spacing:.4em;color:var(--silver);text-transform:uppercase">Con amor · La familia</p>
+    
+    <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(140px,32vw,280px);line-height:1.2;background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(4px 4px 0px rgba(0,0,0,1)) drop-shadow(0px 10px 25px rgba(0,0,0,0.95));padding:0 12px;white-space:nowrap">15<sup style="font-size:.28em;vertical-align:super;font-weight:300">th</sup></div>
+    
+    <div style="font-family:'Dancing Script',cursive;font-weight:400;font-size:clamp(32px,7.5vw,66px);line-height:1.1;letter-spacing:.25em;background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(2px 2px 0px rgba(0,0,0,1)) drop-shadow(0px 4px 10px rgba(0,0,0,0.9))">birthday</div>
+    
+    <div style="font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(65px,14vw,115px);line-height:1.3;background:linear-gradient(180deg,var(--white) 0%,var(--silver) 45%,var(--dark-silver) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(4px 4px 0px rgba(0,0,0,1)) drop-shadow(0px 8px 20px rgba(0,0,0,0.95));margin-top:12px">Lucía</div>
+    
+    <div style="font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:clamp(14px,3vw,24px);letter-spacing:.6em;color:var(--white);margin-top:20px;text-shadow:0 4px 12px rgba(0,0,0,1), 0 0 4px rgba(0,0,0,1)">2026</div>
+    
+    <div style="width:180px;height:1px;background:linear-gradient(90deg,transparent,var(--silver),var(--white),var(--silver),transparent);margin:18px auto"></div>
+    
+    <p style="font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:12px;letter-spacing:.4em;color:var(--silver);text-transform:uppercase;text-shadow: 0 2px 8px rgba(0,0,0,1)">Con amor · La familia</p>
   </div>
 </section>
 
-<script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBdUuyRNDhyC9BVNQbs5ETCo9i0DUEIhAI",
+  authDomain: "mis15lucia.firebaseapp.com",
+  databaseURL: "https://mis15lucia-default-rtdb.firebaseio.com",
+  projectId: "mis15lucia",
+  storageBucket: "mis15lucia.firebasestorage.app",
+  messagingSenderId: "532209660868",
+  appId: "1:532209660868:web:1b64fd58b4609e789fea91"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const songsRef = ref(db, "playlist");
+
 /* cursor tracking */
 const cur=document.getElementById('cur'),trail=document.getElementById('cur-trail');
 let mx=0,my=0;
@@ -396,7 +437,19 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.le
 /* navegación scroll */
 const SIDS=['s0','s1','s2','s3','s4','s5','s6','s7','s8'];
 const nds=document.querySelectorAll('.nd');
-function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+
+function goTo(id){
+  const element = document.getElementById(id);
+  if(element) element.scrollIntoView({behavior:'smooth'});
+}
+
+document.querySelectorAll('#nav .nd').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.getAttribute('data-target');
+    goTo(targetId);
+  });
+});
+
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){const i=SIDS.indexOf(x.target.id);nds.forEach(n=>n.classList.remove('active'));if(i>=0)nds[i]?.classList.add('active')}}),{threshold:.3});
 SIDS.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
 
@@ -405,25 +458,70 @@ const ev=new Date('2026-11-07T22:30:00');
 function upCD(){let d=ev-new Date();if(d<0)d=0;document.getElementById('cd-d').textContent=String(Math.floor(d/86400000)).padStart(2,'0');document.getElementById('cd-h').textContent=String(Math.floor((d%86400000)/3600000)).padStart(2,'0');document.getElementById('cd-m').textContent=String(Math.floor((d%3600000)/60000)).padStart(2,'0');document.getElementById('cd-s').textContent=String(Math.floor((d%60000)/1000)).padStart(2,'0');}
 upCD();setInterval(upCD,1000);
 
-/* interactividad de componentes */
-function submitRsvp(){
-  const n=document.getElementById('rn').value.trim(),a=document.getElementById('ra').value;
-  if(!n||!a){alert('Completá tu nombre y si asistís.');return}
-  const q=document.getElementById('rq').value;
-  window.open(`https://wa.me/5493856176631?text=${encodeURIComponent(`15 de Lucía \nNombre y apellido: ${n}\nAsistencia: ${a==='si'?'✅ Confirmo asistencia':'❌ No puedo'}\nPersonas: ${q}`)}`, '_blank');
-  document.getElementById('rsvp-form-wrap').style.display='none';
-  document.getElementById('rsvp-ok').style.display='block';
-  document.getElementById('rom').textContent=`¡Gracias, ${n}! Te esperamos `;
+/* Lógica de la Playlist vinculada a Firebase */
+function addSong(){
+  const t = document.getElementById('st').value.trim();
+  if(!t) return;
+  
+  push(songsRef, {
+    texto: t
+  }).then(() => {
+    document.getElementById('st').value = '';
+  }).catch((error) => {
+    console.error("Error al guardar en Firebase:", error);
+  });
 }
-function cp(txt,btn){navigator.clipboard.writeText(txt).then(()=>{btn.textContent='¡Listo!';setTimeout(()=>{btn.textContent='Copiar'},2000)})}
-function addSong(){const t=document.getElementById('st').value.trim();if(!t)return;const li=document.getElementById('sl'),d=document.createElement('div');d.className='si';d.innerHTML=`<span class="sn">🎵</span><div><div class="sti">${t}</div></div>`;li.appendChild(d);document.getElementById('st').value='';}
 
+onValue(songsRef, (snapshot) => {
+  const li = document.getElementById('sl');
+  li.innerHTML = '';
+  
+  if (snapshot.exists()) {
+    const data = snapshot.val();
+    Object.values(data).forEach(song => {
+      const d = document.createElement('div');
+      d.className = 'si';
+      d.innerHTML = `<span class="sn">🎵</span><div><div class="sti">${song.texto}</div></div>`;
+      li.appendChild(d);
+    });
+  } else {
+    li.innerHTML = `
+      <div class="si"><span class="sn">🎵</span><div><div class="sti">I Don't Care</div><div class="sar">Ed Sheeran & Justin Bieber</div></div></div>
+      <div class="si"><span class="sn">🎵</span><div><div class="sti">Wannabe</div><div class="sar">Spice Girls</div></div></div>
+    `;
+  }
+});
+
+document.getElementById('add-song-btn').addEventListener('click', addSong);
+
+/* Control de música */
 let isPlaying=false;
 function toggleMusic(){
   const btn=document.getElementById('mbtn'),p=document.getElementById('yt-player');
   if(!isPlaying){isPlaying=true;p.src=`https://www.youtube-nocookie.com/embed/UxxajLWwzqY?autoplay=1&start=20&loop=1&playlist=UxxajLWwzqY&controls=0&rel=0&modestbranding=1`;btn.innerHTML='⏸';}
   else{isPlaying=false;p.src='';btn.innerHTML='🎵';}
 }
+document.getElementById('mbtn').addEventListener('click', toggleMusic);
+
+/* spin 360 al entrar en vista */
+(()=>{
+  const img = document.getElementById('foto-lucia');
+  if(!img) return;
+  let spun = false;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting && !spun) {
+        spun = true;
+        img.classList.add('spin-active');
+        img.addEventListener('animationend', () => {
+          img.classList.remove('spin-active');
+          setTimeout(() => { spun = false; }, 800);
+        }, {once: true});
+      }
+    });
+  }, {threshold: 0.4});
+  obs.observe(img);
+})();
 </script>
 </body>
 </html>
